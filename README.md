@@ -1,85 +1,43 @@
-#Descripción del proyecto
+# Marketing Investment Analysis & Cohort-Based LTV/ROMI Study
 
-Lo has hecho de maravilla en el curso de TripleTen y te han ofrecido hacer prácticas en el departamento de analítica de Showz, una empresa de venta de entradas de eventos. Tu primera tarea es ayudar a optimizar los gastos de marketing. 
+## Overview
+End-to-end business analysis of a ticket sales platform (Showz) using 18 months 
+of server logs, order data, and marketing spend across multiple acquisition sources. 
+The goal was to evaluate how marketing budget was being allocated and whether 
+investments were generating measurable returns.
 
-Cuentas con:
+**Tools:** Python (Pandas, Matplotlib) | **Type:** Exploratory Data Analysis, 
+Cohort Analysis, Marketing Analytics
 
-registros del servidor con datos sobre las visitas a Showz desde enero de 2017 hasta diciembre de 2018;
-un archivo con los pedidos en este periodo;
-estadísticas de gastos de marketing.
-Lo que vas a investigar: 
+## Key Questions Answered
+- How do users behave on the platform? (sessions, frequency, retention)
+- When do users convert to paying customers?
+- What is the LTV per acquisition cohort?
+- Which marketing sources have the lowest CAC and best ROMI?
 
-cómo los clientes usan el servicio;
-cuándo empiezan a comprar;
-cuánto dinero aporta cada cliente a la compañía;
-cuándo los ingresos cubren el costo de adquisición de los clientes.
-Instrucciones para completar el proyecto
+## Key Findings
 
-##Paso 1. Acceda los datos y prepáralos para el análisis
+**User Behavior**
+- Platform traffic peaked during the Oct–Nov holiday season, aligning with 
+  event-buying trends
+- Average session duration: ~10 minutes
+- Average time from registration to first purchase: ~16 days
 
-Almacena los datos de visitas, pedidos y gastos en variables.  Optimiza los datos para el análisis. Asegúrate de que cada columna contenga el tipo de datos correcto. 
-Rutas de archivos: 
+**Purchase Patterns**
+- 88.2% of users placed only 1 order per month — suggesting limited repeat 
+  purchase behavior in the analyzed period
 
-/datasets/visits_log_us.csv Acceda el dataset
-/datasets/orders_log_us.csv Acceda el dataset
-/datasets/costs_us.csv Acceda el dataset
+**Marketing Spend & Efficiency**
+- Source 3 received the largest share of investment ($141,321.63 total), 
+  representing 131% more spend than the second-highest source (Source 4)
+- Despite high spend, Source 3 had one of the highest customer acquisition costs 
+  (CAC), while Sources 9 and 10 showed significantly lower CAC
+- No cohort achieved positive ROMI during the full analysis period, though 
+  cumulative LTV showed an upward trend over time
 
-##Paso 2. Haz informes y calcula métricas 
-
-Visitas:
-
-¿Cuántas personas lo usan cada día, semana y mes?
-¿Cuántas sesiones hay por día? (Un usuario puede tener más de una sesión).
-¿Cuál es la duración de cada sesión?
-¿Con qué frecuencia los usuarios regresan?
-Ventas:
-
-¿Cuándo empieza la gente a comprar? (En el análisis de KPI, generalmente nos interesa saber el tiempo que transcurre entre el registro y la conversión, es decir, cuando el usuario se convierte en cliente. Por ejemplo, si el registro y la primera compra ocurren el mismo día, el usuario podría caer en la categoría Conversion 0d. Si la primera compra ocurre al día siguiente, será Conversion 1d. Puedes usar cualquier enfoque que te permita comparar las conversiones de diferentes cohortes para que puedas determinar qué cohorte o canal de marketing es más efectivo.)
-¿Cuántos pedidos hacen durante un período de tiempo dado?
-¿Cuál es el tamaño promedio de compra?
-¿Cuánto dinero traen? (LTV)
-Marketing:
- 1. ¿Cuánto dinero se gastó?  (Total/por fuente de adquisición/a lo largo del tiempo) 
- 2. ¿Cuál fue el costo de adquisición de clientes de cada una de las fuentes?
- 3. ¿Cuán rentables eran las inversiones? (ROMI)
-
-Traza gráficos para mostrar cómo difieren estas métricas para varios dispositivos y fuentes de anuncios y cómo cambian con el tiempo. 
-
-##Paso 3. Escribe una conclusión: aconseja a los expertos de marketing cuánto dinero invertir y dónde
-
-¿Qué fuentes/plataformas recomendarías?  Fundamenta tu selección: ¿en qué métricas te enfocaste?  ¿Por qué? ¿Qué conclusiones sacaste después de encontrar los valores métricos?
-
-Formato: Completa la tarea en un Jupyter Notebook. Inserta el código en las celdas code y las explicaciones de texto en las celdas markdown. Aplica formato y encabezados.
-
-##Descripción de los datos
-La tabla visits (registros del servidor con datos sobre las visitas al sitio web):
-
-Uid: identificador único del usuario.
-Device: dispositivo del usuario.
-Start Ts: fecha y hora de inicio de la sesión.
-End Ts: fecha y hora de término de la sesión.
-Source Id: identificador de la fuente de anuncios de la que proviene el usuario.
-Todas las fechas de esta tabla están en formato AAAA-MM-DD.
-
-La tabla orders (datos sobre pedidos):
-
-Uid: identificador único del usuario que realiza un pedido.
-Buy Ts: fecha y hora del pedido. Revenue: el ingreso de Showz por el pedido.
-La tabla costs (datos sobre gastos de marketing):
-
-source_id: identificador de la fuente de anuncios.
-dt: fecha.
-costs: gastos en esta fuente de anuncios en este día.
-¿Cómo será evaluado mi proyecto?
-Tu proyecto será evaluado según estos criterios. Léelos atentamente antes de empezar el proyecto. 
-
-Esto es lo que buscan los revisores de proyecto cuando evalúan tu proyecto:
-
-Cómo preparas los datos para el análisis.
-Qué gráficos trazas para las métricas.
-Cómo interpretas los gráficos resultantes.
-Cómo calculas e interpretas cada parámetro.
-Cómo fundamentas tus recomendaciones para los expertos de marketing y qué métricas utilizas.
-Si sigues la estructura del proyecto y mantienes el código ordenado.
-Las conclusiones a las que llegas.
-Si dejas comentarios en cada paso.
+## Conclusions & Recommendations
+The data revealed a misalignment between marketing budget allocation and 
+acquisition efficiency. Source 3's dominance in spend was not justified by 
+proportionally better results. A recommended course of action is to redistribute 
+budget more evenly across sources using controlled baseline parameters, enabling 
+a more reliable comparison of channel performance and faster path to positive ROI.
